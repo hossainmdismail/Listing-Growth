@@ -55,22 +55,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ===== 5. Contact Form Submission Demo =====
-  const contactForm = document.querySelector('form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Thank you for reaching out! Your request for a free audit has been received. We will get back to you within 1 business day.');
-      contactForm.reset();
-    });
-    
-    // Wire submit button if type="button"
-    const submitBtn = contactForm.querySelector('button');
-    if (submitBtn && submitBtn.type === 'button') {
-      submitBtn.addEventListener('click', () => {
-        alert('Thank you for reaching out! Your request for a free audit has been received. We will get back to you within 1 business day.');
-        contactForm.reset();
-      });
-    }
-  }
 });

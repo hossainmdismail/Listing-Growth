@@ -1,2 +1,5 @@
 *
 !.gitignore
+!home-services/
+!home-services/icons/
+!home-services/icons/*.svg

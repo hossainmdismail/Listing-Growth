@@ -3,32 +3,39 @@
     <div class="wrap">
         <div class="footer-top">
             <div>
-                <a href="index.html" class="logo">Listing<span style="color:var(--signal)">Growth</span></a>
-                <p class="footer-blurb">Organic Amazon ranking — no paid ads required — through proven SEO strategy
-                    and real shopper feedback.</p>
+                <a href="{{ route('home') }}" class="logo">{{ $globalSettings?->site_name ?: 'ListingGrowth' }}</a>
+                <p class="footer-blurb">
+                    {{ $globalSettings?->footer_text ?: $globalSettings?->company_description ?: 'Organic Amazon ranking — no paid ads required — through proven SEO strategy and real shopper feedback.' }}
+                </p>
             </div>
             <div class="footer-col">
                 <h4>Company</h4>
-                <a href="about.html">About Us</a>
-                <a href="services.html">Services</a>
-                <a href="index.html#cases">Case Studies</a>
-                <a href="contact.html">Contact</a>
+                <a href="{{ route('about') }}">About Us</a>
+                <a href="{{ route('services') }}">Services</a>
+                <a href="{{ route('home') }}#cases">Case Studies</a>
+                <a href="{{ route('contact') }}">Contact</a>
             </div>
             <div class="footer-col">
                 <h4>Services</h4>
-                <a href="services.html">Ranking Optimization</a>
-                <a href="services.html">Pre-Launch Lab</a>
-                <a href="contact.html">1-on-1 Consultation</a>
+                <a href="{{ route('services') }}">Ranking Optimization</a>
+                <a href="{{ route('services') }}">Pre-Launch Lab</a>
+                <a href="{{ route('contact') }}">1-on-1 Consultation</a>
             </div>
             <div class="footer-col">
                 <h4>Connect</h4>
-                <a href="#">Instagram</a>
-                <a href="#">Facebook</a>
-                <a href="#">LinkedIn</a>
+                @if ($globalSettings?->instagram_url)
+                    <a href="{{ $globalSettings->instagram_url }}" target="_blank" rel="noreferrer">Instagram</a>
+                @endif
+                @if ($globalSettings?->facebook_url)
+                    <a href="{{ $globalSettings->facebook_url }}" target="_blank" rel="noreferrer">Facebook</a>
+                @endif
+                @if ($globalSettings?->linkedin_url)
+                    <a href="{{ $globalSettings->linkedin_url }}" target="_blank" rel="noreferrer">LinkedIn</a>
+                @endif
             </div>
         </div>
         <div class="footer-bottom">
-            <span>© ListingGrowth. All Rights Reserved 2026.</span>
+            <span>{{ $globalSettings?->copyright_text ?: '© '.now()->year.' ListingGrowth. All Rights Reserved.' }}</span>
             <span>Privacy Policy · Terms and Conditions</span>
         </div>
     </div>
